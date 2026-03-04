@@ -6,6 +6,7 @@ import { initButtonA } from "./animations/buttons";
 import { initHeroShowcaseScroll } from "./animations/heroShowcase";
 import { initGrained } from "./utility/grained";
 import { initCSSMarquee } from "./animations/marquee";
+import { initNavigationbar } from "./animations/navigationbar";
 
 gsap.registerPlugin(CustomEase);
 
@@ -56,6 +57,7 @@ function initAfterEnterFunctions(next) {
 
   // Runs after enter animation completes
   // if (has('[data-something]')) initSomething();
+  if (has("[data-nav-wrap]")) initNavigationbar();
   if (has("[data-grained]")) initGrained();
   if (has("[data-hero-showcase]")) initHeroShowcaseScroll();
   if (has("[data-button-a]")) initButtonA();

@@ -1,5 +1,4 @@
 export function initCSSMarquee() {
-  console.log("Initialized cssMarquee");
   const pixelsPerSecond = 75; // Set the marquee speed (pixels per second)
   const marquees = document.querySelectorAll("[data-css-marquee]");
 
@@ -17,12 +16,12 @@ export function initCSSMarquee() {
       entries.forEach((entry) => {
         entry.target
           .querySelectorAll("[data-css-marquee-list]")
-          .forEach((list) => {
-            console.log(entry.isIntersecting);
-            list.style.animationPlayState = entry.isIntersecting
-              ? "running"
-              : "paused";
-          });
+          .forEach(
+            (list) =>
+              (list.style.animationPlayState = entry.isIntersecting
+                ? "running"
+                : "paused"),
+          );
       });
     },
     { threshold: 0 },
