@@ -45,13 +45,6 @@ export function initNavigationbar() {
     hideMarquee();
   });
 
-  //————— Hide/Show on scroll —————
-  function showNav() {}
-
-  function hideNav() {}
-
-  lenis.on("scroll", () => {});
-
   //————— Link Hovers —————
   const links = nav.querySelectorAll("[data-nav-underline-link]");
 

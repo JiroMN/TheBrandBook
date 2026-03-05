@@ -19,11 +19,10 @@ export function initButtonA() {
     });
 
     btn.addEventListener("mouseenter", function () {
-      let tl = gsap.timeline({ defaults: { duration: 0.6 } });
-
+      let tl = gsap.timeline({ defaults: { duration: 0.7 } });
       tl.to(bg, {
         scaleX: 1.1,
-        borderRadius: "99px",
+        borderRadius: bg.offsetWidth / 2 + "px",
       })
         .fromTo(
           splitOriginal.chars,
@@ -33,20 +32,21 @@ export function initButtonA() {
           {
             yPercent: -110,
             stagger: 0.03,
+            duration: 0.45,
           },
           0,
         )
         .fromTo(
           splitClone.chars,
           { yPercent: 110 },
-          { yPercent: 0, stagger: 0.03 },
+          { yPercent: 0, stagger: 0.03, duration: 0.45 },
           0,
         );
     });
     btn.addEventListener("mouseleave", function () {
       gsap.to(bg, {
         scaleX: 1,
-        borderRadius: "0" + initialBorderRadiusValue,
+        borderRadius: initialBorderRadiusValue,
       });
     });
   });

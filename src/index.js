@@ -7,6 +7,7 @@ import { initHeroShowcaseScroll } from "./animations/heroShowcase";
 import { initGrained } from "./utility/grained";
 import { initCSSMarquee } from "./animations/marquee";
 import { initNavigationbar } from "./animations/navigationbar";
+import { initAutoPlayBenefits } from "./animations/benefits";
 
 gsap.registerPlugin(CustomEase);
 
@@ -62,6 +63,7 @@ function initAfterEnterFunctions(next) {
   if (has("[data-hero-showcase]")) initHeroShowcaseScroll();
   if (has("[data-button-a]")) initButtonA();
   if (has("[data-css-marquee]")) initCSSMarquee();
+  if (has("[data-benefits]")) initAutoPlayBenefits();
 
   if (hasLenis) {
     lenis.resize();
