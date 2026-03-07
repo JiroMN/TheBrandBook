@@ -2,12 +2,13 @@
 // OSMO PAGE TRANSITION BOILERPLATE
 // -----------------------------------------
 
-import { initButtonA } from "./animations/buttons";
+import { initButton, initPillButton } from "./animations/buttons";
 import { initHeroShowcaseScroll } from "./animations/heroShowcase";
 import { initGrained } from "./utility/grained";
 import { initCSSMarquee } from "./animations/marquee";
 import { initNavigationbar } from "./animations/navigationbar";
 import { initAutoPlayBenefits } from "./animations/benefits";
+import { initServicesIntro, initStackingServices } from "./animations/services";
 
 gsap.registerPlugin(CustomEase);
 
@@ -61,9 +62,12 @@ function initAfterEnterFunctions(next) {
   if (has("[data-nav-wrap]")) initNavigationbar();
   if (has("[data-grained]")) initGrained();
   if (has("[data-hero-showcase]")) initHeroShowcaseScroll();
-  if (has("[data-button-a]")) initButtonA();
+  if (has("[data-button]")) initButton();
+  if (has("[data-pill-button]")) initPillButton();
   if (has("[data-css-marquee]")) initCSSMarquee();
   if (has("[data-benefits]")) initAutoPlayBenefits();
+  if (has("[data-services-intro]")) initServicesIntro();
+  if (has("[data-services]")) initStackingServices();
 
   if (hasLenis) {
     lenis.resize();

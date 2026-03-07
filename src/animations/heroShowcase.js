@@ -1,13 +1,13 @@
-gsap.registerPlugin(ScrollTrigger);
 export function initHeroShowcaseScroll() {
   const page = document.querySelector("main");
+  const hero = document.querySelector("[data-hero]");
   const container = document.querySelector("[data-hero-showcase]");
   const backdrop = container.querySelector("[data-hero-showcase-backdrop]");
   const image = document.querySelector("[data-hero-showcase-img]");
 
   let tl = gsap.timeline({
     scrollTrigger: {
-      trigger: page,
+      trigger: hero,
       start: "clamp(top top)",
       end: "clamp(bottom top)",
       scrub: true,

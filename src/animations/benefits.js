@@ -70,8 +70,6 @@ export function initAutoPlayBenefits() {
         "[data-benefits-list-item-p]",
       );
 
-      console.log(incomingBackdrop);
-
       contentItems.forEach((item, i) => {
         if (i !== index) {
           gsap.set(item, {
@@ -166,7 +164,7 @@ export function initAutoPlayBenefits() {
 
     ScrollTrigger.create({
       trigger: section,
-      start: "clamp(top+=100px bottom)",
+      start: "clamp(top+=10% bottom)",
       onEnter: () => switchTab(0),
     });
 
