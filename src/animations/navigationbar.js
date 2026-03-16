@@ -44,24 +44,4 @@ export function initNavigationbar() {
     if (!hasPlayedInitialAnimation) return;
     hideMarquee();
   });
-
-  //————— Link Hovers —————
-  const links = nav.querySelectorAll("[data-nav-underline-link]");
-
-  links.forEach((link) => {
-    const underline = link.querySelector("[data-nav-underline-link-stroke]");
-
-    link.addEventListener("mouseenter", function () {
-      gsap.to(underline, {
-        scaleX: 1,
-        transformOrigin: "left center",
-      });
-    });
-    link.addEventListener("mouseleave", function () {
-      gsap.to(underline, {
-        scaleX: 0,
-        transformOrigin: "right center",
-      });
-    });
-  });
 }

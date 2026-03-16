@@ -1,3 +1,5 @@
+import { resizeLenis } from "..";
+
 export function initAutoPlayBenefits() {
   const wrappers = document.querySelectorAll("[data-benefits]");
   const inactiveFilter = "grayscale(1) brightness(0.55) invert(0%)";
@@ -155,7 +157,12 @@ export function initAutoPlayBenefits() {
             paddingTop: 10,
           },
           0,
-        ).fromTo(incomingDetails, { height: 0 }, { height: "auto" }, 0);
+        ).fromTo(
+          incomingDetails,
+          { height: 0 },
+          { height: "auto", onComplete: () => resizeLenis() },
+          0,
+        );
       }
       if (incomingBar) {
         tl.set(incomingBar, { scaleX: 0, transformOrigin: "left center" }, 0);

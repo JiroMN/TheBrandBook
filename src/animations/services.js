@@ -13,11 +13,11 @@ export function initServicesIntro() {
     autoSplit: true,
     onSplit: (self) => {
       let appearTimeline = gsap.timeline({
-        defaults: { ease: "osmo", duration: 1.2 },
+        defaults: { ease: "osmo" },
         scrollTrigger: {
           trigger: text,
           start: "20% 75%",
-          end: "center 40%",
+          end: "center 30%",
           scrub: true,
         },
       });
@@ -30,8 +30,8 @@ export function initServicesIntro() {
       let scrollingTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: text,
-          start: "50% 75%",
-          end: "center 40%",
+          start: "50% 85%",
+          end: "center 30%",
           scrub: true,
         },
       });

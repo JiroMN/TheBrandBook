@@ -2,13 +2,19 @@
 // OSMO PAGE TRANSITION BOILERPLATE
 // -----------------------------------------
 
-import { initButton, initPillButton } from "./animations/buttons";
+import {
+  initButton,
+  initLinkButton,
+  initPillButton,
+} from "./animations/buttons";
 import { initHeroShowcaseScroll } from "./animations/heroShowcase";
 import { initGrained } from "./utility/grained";
 import { initCSSMarquee } from "./animations/marquee";
 import { initNavigationbar } from "./animations/navigationbar";
 import { initAutoPlayBenefits } from "./animations/benefits";
 import { initServicesIntro, initStackingServices } from "./animations/services";
+import { initLiveDate } from "./utility/copyrightDate";
+import { initFooterParallex } from "./animations/footerParallex";
 
 gsap.registerPlugin(CustomEase);
 
@@ -37,7 +43,6 @@ gsap.defaults({ ease: "osmo", duration: durationDefault });
 // -----------------------------------------
 // FUNCTION REGISTRY
 // -----------------------------------------
-
 function initOnceFunctions() {
   initLenis();
   if (onceFunctionsInitialized) return;
@@ -64,10 +69,13 @@ function initAfterEnterFunctions(next) {
   if (has("[data-hero-showcase]")) initHeroShowcaseScroll();
   if (has("[data-button]")) initButton();
   if (has("[data-pill-button]")) initPillButton();
+  if (has("[data-nav-underline-link]")) initLinkButton();
   if (has("[data-css-marquee]")) initCSSMarquee();
   if (has("[data-benefits]")) initAutoPlayBenefits();
   if (has("[data-services-intro]")) initServicesIntro();
   if (has("[data-services]")) initStackingServices();
+  if (has("[data-live-date]")) initLiveDate();
+  if (has("[data-footer]")) initFooterParallex();
 
   if (hasLenis) {
     lenis.resize();
@@ -273,6 +281,10 @@ function initLenis() {
   });
 
   gsap.ticker.lagSmoothing(0);
+}
+export function resizeLenis() {
+  lenis.resize();
+  console.log("resized lenis");
 }
 
 function resetPage(container) {
