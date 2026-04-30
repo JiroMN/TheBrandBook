@@ -15,6 +15,7 @@ import { initAutoPlayBenefits } from "./animations/benefits";
 import { initServicesIntro, initStackingServices } from "./animations/services";
 import { initLiveDate } from "./utility/copyrightDate";
 import { initFooterParallex } from "./animations/footerParallex";
+import { initRotatingText } from "./animations/rotatingTitle";
 
 gsap.registerPlugin(CustomEase);
 
@@ -67,6 +68,7 @@ function initAfterEnterFunctions(next) {
   if (has("[data-nav-wrap]")) initNavigationbar();
   if (has("[data-grained]")) initGrained();
   if (has("[data-hero-showcase]")) initHeroShowcaseScroll();
+  if (has("[data-rotating-title]")) initRotatingText();
   if (has("[data-button]")) initButton();
   if (has("[data-pill-button]")) initPillButton();
   if (has("[data-nav-underline-link]")) initLinkButton();
