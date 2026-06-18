@@ -16,6 +16,11 @@ import { initServicesIntro, initStackingServices } from "./animations/services";
 import { initLiveDate } from "./utility/copyrightDate";
 import { initFooterParallex } from "./animations/footerParallex";
 import { initRotatingText } from "./animations/rotatingTitle";
+import { initContactPage } from "./animations/contact";
+import {
+  initSubscriptionToggle,
+  prepSubscriptionToggle,
+} from "./animations/subscriptions";
 
 gsap.registerPlugin(CustomEase);
 
@@ -58,6 +63,7 @@ function initBeforeEnterFunctions(next) {
 
   // Runs before the enter animation
   // if (has('[data-something]')) initSomething();
+  if (has("[data-subscription-toggle-wrap]")) prepSubscriptionToggle(next);
 }
 
 function initAfterEnterFunctions(next) {
@@ -78,6 +84,8 @@ function initAfterEnterFunctions(next) {
   if (has("[data-services]")) initStackingServices();
   if (has("[data-live-date]")) initLiveDate();
   if (has("[data-footer]")) initFooterParallex();
+  if (has("[data-contact-page]")) initContactPage();
+  if (has("[data-subscription-toggle-wrap]")) initSubscriptionToggle(next);
 
   if (hasLenis) {
     lenis.resize();
