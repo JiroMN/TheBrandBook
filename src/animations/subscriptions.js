@@ -23,24 +23,36 @@ export function initSubscriptionToggle(scope = document) {
       wrap.dataset.subscriptionToggleActive = value;
 
       const card = wrap.closest("[data-vsa-subscription-card]");
-      if (card) {
-        card.dataset.subscriptionToggleActive = value;
+      if (!card) return;
+      card.dataset.subscriptionToggleActive = value;
 
-        // Toon/verberg price variants
-        const activePrice = card.querySelector(
-          `[data-subscription-price-variant="${value}"]`,
-        );
-        const otherPrices = card.querySelectorAll(
-          `[data-subscription-price-variant]:not([data-subscription-price-variant="${value}"])`,
-        );
+      // Toon/verberg price variants
+      const activePrice = card.querySelector(
+        `[data-subscription-price-variant="${value}"]`,
+      );
+      const otherPrices = card.querySelectorAll(
+        `[data-subscription-price-variant]:not([data-subscription-price-variant="${value}"])`,
+      );
 
-        if (!activePrice || !otherPrices) return;
+      if (!activePrice || !otherPrices) return;
 
-        let tl = gsap.timeline();
-        tl.to(otherPrices, {
-          yPercent: -101,
-        }).fromTo(activePrice, { yPercent: 101 }, { yPercent: 0 }, "<50%");
-      }
+      let tl = gsap.timeline();
+      tl.to(otherPrices, {
+        yPercent: -101,
+      }).fromTo(activePrice, { yPercent: 101 }, { yPercent: 0 }, "<");
+
+      const paymentLinkButton = card.querySelector(
+        "[data-vsa-subscription-payment-link]",
+      );
+
+      if (!paymentLinkButton) return;
+
+      const paymentLinks = {
+        maandelijks: card.getAttribute("data-vsa-monthly-payment-link"),
+        driemaandelijks: card.getAttribute("data-vsa-quarterly-payment-link"),
+      };
+
+      paymentLinkButton.href = paymentLinks[value];
 
       items.forEach((item, i) => {
         item.toggleAttribute("data-subscription-toggle-active", i === index);
